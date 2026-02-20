@@ -1,0 +1,76 @@
+<div class="apply-container">
+
+  <h3 class="page-title">Apply for Certificate</h3>
+
+  <form (ngSubmit)="submitApplication()" #form="ngForm" class="apply-form">
+
+    <!-- Certificate Type -->
+    <div class="form-group">
+      <label>Certificate Type</label>
+      <select
+        class="form-control"
+        required
+        name="certificateType"
+        [(ngModel)]="application.certificateType">
+        <option value="" disabled>Select Certificate</option>
+        <option *ngFor="let type of certificateTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label>Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        name="fullName"
+        [(ngModel)]="application.fullName"
+        placeholder="Enter full name">
+    </div>
+
+    <!-- Aadhar -->
+    <div class="form-group">
+      <label>Aadhar Number</label>
+      <input
+        type="text"
+        maxlength="12"
+        class="form-control"
+        required
+        name="aadhar"
+        [(ngModel)]="application.aadhar"
+        placeholder="Enter Aadhar number">
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <label>Address</label>
+      <textarea
+        class="form-control"
+        rows="3"
+        required
+        name="address"
+        [(ngModel)]="application.address"
+        placeholder="Enter residential address"></textarea>
+    </div>
+
+    <!-- Document Upload -->
+    <div class="form-group">
+      <label>Upload Supporting Document</label>
+      <input
+        type="file"
+        class="form-control"
+        (change)="onFileSelect($event)">
+    </div>
+
+    <!-- Submit -->
+    <button class="btn submit-btn" type="submit" [disabled]="!form.valid">
+      Submit Application
+    </button>
+
+  </form>
+
+</div>
+

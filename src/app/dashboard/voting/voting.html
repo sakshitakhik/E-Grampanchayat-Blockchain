@@ -1,0 +1,17 @@
+<div class="voting-wrapper">
+  <h3 class="title">Village Voting</h3>
+
+  <div class="vote-card" *ngFor="let d of decisions">
+    <h5>{{ d.title }}</h5>
+
+    <div class="btn-group">
+      <button class="yes-btn" (click)="vote(d, 'yes')">
+        Yes ({{ d.yes }})
+      </button>
+
+      <button class="no-btn" (click)="vote(d, 'no')">
+        No ({{ d.no }})
+      </button>
+    </div>
+  </div>
+</div>

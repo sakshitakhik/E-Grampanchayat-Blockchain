@@ -1,0 +1,79 @@
+.announcement-wrapper {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+/* Titles */
+.section-title {
+  color: #2E7D32;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  color: #6b6b6b;
+  margin-bottom: 25px;
+}
+
+/* Announcement Card */
+.announcement-card {
+  background-color: #f9f9f9;
+  border-radius: 14px;
+  padding: 20px;
+  border-left: 5px solid #2E7D32;
+  transition: transform 0.2s ease;
+}
+
+.announcement-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h5 {
+  color: #2E7D32;
+  font-weight: 600;
+}
+
+/* Priority Badge */
+.priority-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.priority-badge.high {
+  background-color: #c62828;
+  color: #ffffff;
+}
+
+.priority-badge.medium {
+  background-color: #f9a825;
+  color: #4e342e;
+}
+
+.priority-badge.low {
+  background-color: #2E7D32;
+  color: #F5DEB3;
+}
+
+/* Description */
+.description {
+  color: #555;
+  margin: 12px 0 18px;
+}
+
+/* Footer */
+.card-footer {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

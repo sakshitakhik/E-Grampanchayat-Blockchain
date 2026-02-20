@@ -1,0 +1,43 @@
+<div class="announcement-wrapper">
+
+  <h3 class="section-title">Official Announcements</h3>
+  <p class="section-subtitle">
+    Latest notices and updates from Gram Panchayat
+  </p>
+
+  <div class="row g-4">
+
+    <div class="col-md-6" *ngFor="let notice of announcements">
+
+      <div class="announcement-card shadow-sm">
+
+        <div class="card-header">
+          <h5>{{ notice.title }}</h5>
+
+          <span
+            class="priority-badge"
+            [ngClass]="{
+              'high': notice.priority === 'High',
+              'medium': notice.priority === 'Medium',
+              'low': notice.priority === 'Low'
+            }">
+            {{ notice.priority }}
+          </span>
+        </div>
+
+        <p class="description">
+          {{ notice.description }}
+        </p>
+
+        <div class="card-footer">
+          <i class="bi bi-calendar-event"></i>
+          <span>{{ notice.date }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

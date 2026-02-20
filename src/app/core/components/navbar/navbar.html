@@ -1,0 +1,71 @@
+<nav class="custom-navbar navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="/">
+      <span class="brand-text">E-Gram Panchayat</span>
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon custom-toggler"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center">
+
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/"
+             routerLinkActive="active-link"
+             [routerLinkActiveOptions]="{ exact: true }">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/about-us"
+             routerLinkActive="active-link">
+            About Us
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/contact-us"
+             routerLinkActive="active-link">
+            Contact Us
+          </a>
+        </li>
+
+        <li class="nav-item ms-lg-4">
+
+          @if (!isLoggedIn) {
+            <button class="btn-login" (click)="goToLogin()">
+              Login
+            </button>
+          }
+
+          @if (isLoggedIn) {
+            <button class="btn-logout" (click)="logout()">
+              Logout
+            </button>
+          }
+
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>

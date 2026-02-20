@@ -1,0 +1,92 @@
+/* ===== Blue Themed Navbar ===== */
+.custom-navbar {
+  background: linear-gradient(90deg, #1565C0, #0D47A1);
+  padding: 14px 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand */
+.brand-text {
+  font-weight: 600;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+/* Nav Links */
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  margin-left: 20px;
+  transition: 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #FFFFFF;
+}
+
+/* Active Route */
+.active-link {
+  color: #FFFFFF !important;
+  position: relative;
+}
+
+.active-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #FFFFFF;
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #FFFFFF;
+  color: #1565C0;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #E3F2FD;
+}
+
+/* Logout Button */
+.btn-logout {
+  background-color: #D32F2F;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-logout:hover {
+  background-color: #B71C1C;
+}
+
+/* Custom Toggler (White Icon) */
+.custom-toggler {
+  filter: invert(1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav-link {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .btn-login,
+  .btn-logout {
+    width: 100%;
+    margin-top: 12px;
+  }
+}

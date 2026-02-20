@@ -1,0 +1,131 @@
+/* Wrapper */
+.complaint-wrapper {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Section Heading */
+.section-title {
+  color: #2E7D32;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Card Layout */
+.card {
+  border-radius: 14px;
+  border: none;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* Form Title */
+.form-title {
+  color: #2E7D32;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #2E7D32;
+  box-shadow: 0 0 0 0.15rem rgba(46, 125, 50, 0.25);
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #2E7D32;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 10px 24px;
+  border: none;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #F5DEB3;
+  color:#1b5e20
+}
+
+/* Complaint History */
+.complaint-history {
+  margin-top: 30px;
+}
+
+/* Table */
+.complaint-table {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.complaint-table thead {
+  background-color: #F5DEB3;
+}
+
+.complaint-table th {
+  color: #2E7D32;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.complaint-table td {
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Status Colors */
+.status-badge.resolved {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.status-badge.progress {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .complaint-wrapper {
+    padding: 5px;
+  }
+
+  .complaint-table th,
+  .complaint-table td {
+    font-size: 13px;
+  }
+}

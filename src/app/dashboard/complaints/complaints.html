@@ -1,0 +1,77 @@
+<div class="complaint-wrapper">
+
+  <h3 class="section-title">Citizen Complaints</h3>
+  <p class="section-subtitle">
+    Register and track grievances related to Gram Panchayat services
+  </p>
+
+  <!-- Complaint Form -->
+  <div class="complaint-form card shadow-sm">
+    <h5 class="form-title">Register New Complaint</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Complaint Category</label>
+      <select
+        class="form-select"
+        [(ngModel)]="complaint.category">
+        <option value="">Select Category</option>
+        <option>Water Supply</option>
+        <option>Electricity</option>
+        <option>Road Maintenance</option>
+        <option>Sanitation</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Complaint Description</label>
+     <textarea
+  rows="4"
+  class="form-control"
+  placeholder="Describe the issue in detail"
+  [(ngModel)]="complaint.description"></textarea>
+    </div>
+
+    <button class="btn submit-btn" (click)="submitComplaint()">
+      Submit Complaint
+    </button>
+  </div>
+
+  <!-- Complaint History -->
+  <div class="complaint-history mt-4">
+    <h5 class="form-title">My Complaints</h5>
+
+    <div class="table-responsive">
+      <table class="table complaint-table">
+        <thead>
+          <tr>
+            <th>Complaint ID</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let c of complaintsList">
+            <td>{{ c.id }}</td>
+            <td>{{ c.category }}</td>
+            <td>
+              <span
+                class="status-badge"
+                [ngClass]="{
+                  'resolved': c.status === 'Resolved',
+                  'progress': c.status === 'InProgress'
+                }">
+                {{ c.status }}
+              </span>
+            </td>
+            <td>{{ c.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

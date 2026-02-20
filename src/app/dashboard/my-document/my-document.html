@@ -1,0 +1,62 @@
+<div class="documents-wrapper">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h2>My Documents</h2>
+    <p>View and manage certificates issued by the Gram Panchayat</p>
+  </div>
+
+  <!-- Documents Card -->
+  <div class="documents-card">
+
+    <div class="table-responsive">
+      <table class="documents-table">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Issued Date</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let doc of documents">
+            <td class="doc-name">
+              <div class="doc-title">{{ doc.name }}</div>
+              <div class="doc-id">ID: {{ doc.id }}</div>
+            </td>
+
+            <td>{{ doc.type }}</td>
+
+            <td>
+              <span
+                class="status-badge"
+                [ngClass]="{
+                  'approved': doc.status === 'Approved',
+                  'pending': doc.status === 'Pending',
+                  'rejected': doc.status === 'Rejected'
+                }">
+                {{ doc.status }}
+              </span>
+            </td>
+
+            <td>{{ doc.date || '-' }}</td>
+
+            <td class="text-center">
+              <button class="btn-view">View</button>
+              <button 
+                class="btn-download"
+                [disabled]="doc.status !== 'Approved'">
+                Download
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>

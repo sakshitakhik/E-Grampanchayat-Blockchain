@@ -1,0 +1,60 @@
+.apply-container {
+  max-width: 650px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.page-title {
+  color: #2E7D32;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus {
+  border-color: #2E7D32;
+  box-shadow: none;
+}
+.submit-btn {
+  background-color: #2E7D32;      /* Forest Green */
+  color: #F5DEB3;                 /* Cream */
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 10px 24px;
+  border: 2px solid #2E7D32;
+  transition: all 0.3s ease;
+}
+
+/* 🌟 Hover State */
+.submit-btn:hover {
+  background-color: #F5DEB3;      /* Earth Brown */
+  border-color: #F5DEB3;
+  color: #2E7D32;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔒 Disabled State */
+.submit-btn:disabled {
+  background-color: #9E9E9E;
+  border-color: #9E9E9E;
+  color: #ffffff;
+  cursor: not-allowed;
+}
