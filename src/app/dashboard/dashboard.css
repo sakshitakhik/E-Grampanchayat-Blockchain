@@ -1,91 +1,107 @@
-/* Wrapper layout */
+/* ===================================== */
+/* MAIN LAYOUT */
+/* ===================================== */
+
 .dashboard-wrapper {
   display: flex;
-  height: 100%;
-  background-color: white;
-  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #f4f6f9;
 }
 
-/* Sidebar */
+/* ===================================== */
+/* SIDEBAR */
+/* ===================================== */
+
 .sidebar {
   width: 250px;
-  background-color: #2E7D32; /* Green */
-  color: white;
-  padding: 20px 15px;
-  height: 100vh;
-  position: fixed;
+  background-color: #ffffff;
+  padding: 25px 15px;
+  border-right: 1px solid #e0e0e0;
 }
 
 .sidebar-title {
-  font-size: 20px;
-  color: #F5DEB3;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   margin-bottom: 20px;
+  color: #1a237e;
+  text-align: center;
 }
 
 .sidebar-menu {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.sidebar-menu li a {
-  text-decoration: none;        /* remove underline */
-  color: white;                 /* default text color */
-  display: flex;                /* align icon + text */
+.sidebar-menu li {
+  margin-bottom: 12px;
+}
+
+.sidebar-menu a {
+  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 10px;
-  border-radius: 8px;
-  transition: 0.3s;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: #333;
   font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-
-.sidebar-menu li a:hover,
-.sidebar-menu li a.active {
-  background-color: #F5DEB3;   /* Cream */
-  color: #2E7D32;              /* Green text */
+.sidebar-menu a i {
+  font-size: 18px;
 }
 
+/* Hover Effect */
+.sidebar-menu a:hover {
+  background-color: #e8eaf6;
+  color: #1a237e;
+}
 
-/* Main Content */
+/* Active Link */
+.sidebar-menu a.active {
+  background-color: #1a237e;
+  color: #ffffff;
+}
+
+/* ===================================== */
+/* MAIN CONTENT */
+/* ===================================== */
+
 .content {
-  margin-left: 270px;
+  flex: 1;
   padding: 30px;
-  width: calc(100% - 270px);
+}
+
+/* ===================================== */
+/* DASHBOARD HEADER */
+/* ===================================== */
+
+.dashboard-header {
+  text-align: center;
+  padding: 20px 0 25px 0;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .page-title {
-  color: #2E7D32;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a237e;
+  letter-spacing: 0.5px;
 }
 
-/* Cards */
-.service-card {
-  border-radius: 12px;
-  border-left: 5px solid #2E7D32;
-}
+/* ===================================== */
+/* PAGE CONTENT AREA */
+/* ===================================== */
 
-.open-btn {
-  background-color: #2E7D32;
-  color: white;
-  font-weight: 600;
-  border-radius: 25px;
-}
-
-.open-btn:hover {
-  background-color: #255f28;
-}
-
-/* Mobile Responsive */
-@media (max-width: 992px) {
-  .sidebar {
-    position: absolute;
-    width: 200px;
-    z-index: 100;
-  }
-
-  .content {
-    margin-left: 0;
-    padding-top: 120px;
-  }
+.page-content {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }

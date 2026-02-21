@@ -8,47 +8,55 @@
 
       <li>
         <a routerLink="announcements" routerLinkActive="active">
-          <i class="bi bi-megaphone"></i> Announcements
+          <i class="bi bi-megaphone"></i>
+          <span>Announcements</span>
         </a>
       </li>
 
       <li>
         <a routerLink="voting" routerLinkActive="active">
-          <i class="bi bi-megaphone"></i> Voting
+          <i class="bi bi-check2-square"></i>
+          <span>Voting</span>
         </a>
       </li>
 
       <li>
         <a routerLink="apply-certificate" routerLinkActive="active">
-          <i class="bi bi-file-earmark-text"></i> Apply Certificates
+          <i class="bi bi-file-earmark-text"></i>
+          <span>Apply Certificates</span>
         </a>
       </li>
 
       <li>
         <a routerLink="complaints" routerLinkActive="active">
-          <i class="bi bi-exclamation-square"></i> Complaints
+          <i class="bi bi-exclamation-square"></i>
+          <span>Complaints</span>
         </a>
       </li>
 
       <li>
         <a routerLink="my-documents" routerLinkActive="active">
-          <i class="bi bi-folder-check"></i> My Documents
+          <i class="bi bi-folder-check"></i>
+          <span>My Documents</span>
         </a>
       </li>
-
-      
-
-      
 
     </ul>
   </aside>
 
   <!-- Main Content -->
   <main class="content">
-    <h2 class="fw-bold mb-2 page-title">Citizen Dashboard</h2>
 
-    <!-- CHILD COMPONENTS LOAD HERE -->
-    <router-outlet></router-outlet>
+    <!-- Centered Header -->
+    <div class="dashboard-header">
+      <h2 class="page-title">Citizen Dashboard</h2>
+    </div>
+
+    <!-- Child Components Load Here -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+
   </main>
 
 </div>

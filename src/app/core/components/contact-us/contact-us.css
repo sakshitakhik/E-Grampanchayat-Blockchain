@@ -1,51 +1,87 @@
-:root{
-  --forest: #2E7D32;
-  --cream: #F5DEB3;
-  --card-bg: #ffffff;
-  --muted: #4b5563;
-  --border: #e8f1e8;
-}
+/* ===================================== */
+/* CONTACT PAGE WRAPPER */
+/* ===================================== */
 
-/* Container */
 .contact-container {
-  min-height: 80vh;
-  background-color: var(--cream);
-  color: var(--muted);
-  font-family: "Poppins", "Segoe UI", sans-serif;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-    background: linear-gradient(to right, #E8F5E9, #F5DEB3);
-
-
+  background-color: #f4f6f9;
+  min-height: 100vh;
 }
 
-/* Title (re-uses .section-title styling from About) */
+/* Centered Content Card */
+.contact-container .container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===================================== */
+/* SECTION TITLE */
+/* ===================================== */
+
 .section-title {
-  color: var(--forest);
-  font-size: 1.9rem;
+  font-size: 26px;
   font-weight: 700;
+  color: #1a237e;
+  position: relative;
 }
 
-/* Card */
+/* Underline Accent */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #1a237e;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===================================== */
+/* CONTACT CARD */
+/* ===================================== */
+
 .contact-card {
-  background: var(--card-bg);
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.12);
-  color: var(--muted);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  background-color: white;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Subtle Hover Effect */
 .contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(46,125,50,0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-.contact-card p { margin: .35rem 0; font-size: 1rem; }
+/* ===================================== */
+/* TEXT STYLING */
+/* ===================================== */
 
-/* Responsive */
+.contact-card p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+}
+
+.contact-card strong {
+  color: #1a237e;
+  font-weight: 600;
+}
+
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+
 @media (max-width: 768px) {
-  .section-title { font-size: 1.5rem; }
-  .contact-card { padding: 1.25rem; }
+  .contact-container {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
 }

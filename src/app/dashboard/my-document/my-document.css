@@ -1,142 +1,186 @@
-/* Page Background */
+/* ===================================== */
+/* WRAPPER */
+/* ===================================== */
+
 .documents-wrapper {
-  background-color: #F4F6F8;
-  padding: 30px;
-  min-height: 100vh;
-  font-family: "Poppins", "Segoe UI", sans-serif;
+  padding: 20px 5px;
 }
 
-/* Header */
+
+/* ===================================== */
+/* PAGE HEADER */
+/* ===================================== */
+
 .page-header h2 {
-  color: #1565C0;
+  font-size: 22px;
   font-weight: 600;
+  color: #1a237e;
   margin-bottom: 5px;
 }
 
 .page-header p {
-  color: #546E7A;
+  font-size: 14px;
+  color: #616161;
   margin-bottom: 25px;
 }
 
-/* Card */
+
+/* ===================================== */
+/* DOCUMENTS CARD */
+/* ===================================== */
+
 .documents-card {
-  background: #FFFFFF;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Table */
+
+/* ===================================== */
+/* TABLE */
+/* ===================================== */
+
 .documents-table {
   width: 100%;
   border-collapse: collapse;
 }
 
 .documents-table thead {
-  background-color: #E3F2FD;
+  background-color: #f4f6f9;
 }
 
 .documents-table th {
-  padding: 14px;
-  text-align: left;
-  font-weight: 600;
-  color: #1565C0;
   font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  padding: 12px;
+  text-align: left;
 }
 
 .documents-table td {
-  padding: 16px 14px;
-  border-bottom: 1px solid #ECEFF1;
+  font-size: 14px;
+  padding: 12px;
+  color: #555;
   vertical-align: middle;
+  border-top: 1px solid #eeeeee;
 }
 
-/* Hover Effect */
 .documents-table tbody tr:hover {
-  background-color: #F1F8FF;
-  transition: 0.2s ease;
+  background-color: #f9fafc;
 }
 
-/* Document Name Styling */
+
+/* ===================================== */
+/* DOCUMENT NAME COLUMN */
+/* ===================================== */
+
+.doc-name {
+  display: flex;
+  flex-direction: column;
+}
+
 .doc-title {
-  font-weight: 500;
-  color: #263238;
+  font-weight: 600;
+  color: #212121;
 }
 
 .doc-id {
   font-size: 12px;
-  color: #78909C;
+  color: #757575;
 }
 
-/* Status Badges */
+
+/* ===================================== */
+/* STATUS BADGES */
+/* ===================================== */
+
 .status-badge {
-  padding: 6px 14px;
+  font-size: 12px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 13px;
   font-weight: 500;
-  display: inline-block;
 }
 
+/* Approved */
 .status-badge.approved {
-  background-color: #E8F5E9;
-  color: #2E7D32;
+  background-color: #e8f5e9;
+  color: #1b5e20;
 }
 
+/* Pending */
 .status-badge.pending {
-  background-color: #FFF8E1;
-  color: #F9A825;
+  background-color: #fff8e1;
+  color: #f57f17;
 }
 
+/* Rejected */
 .status-badge.rejected {
-  background-color: #FFEBEE;
-  color: #D32F2F;
+  background-color: #fdecea;
+  color: #b71c1c;
 }
 
-/* Buttons */
-.btn-view {
-  background-color: #1565C0;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  margin-right: 6px;
+
+/* ===================================== */
+/* ACTION BUTTONS */
+/* ===================================== */
+
+.btn-view,
+.btn-download {
   font-size: 13px;
-  cursor: pointer;
-  transition: 0.2s ease;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  margin: 0 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* View Button */
+.btn-view {
+  background-color: #e8eaf6;
+  color: #1a237e;
 }
 
 .btn-view:hover {
-  background-color: #0D47A1;
+  background-color: #d1d9ff;
 }
 
+/* Download Button */
 .btn-download {
-  background-color: #2E7D32;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: 0.2s ease;
+  background-color: #1a237e;
+  color: #ffffff;
+}
+
+.btn-download:hover {
+  background-color: #0d1b5e;
 }
 
 .btn-download:disabled {
-  background-color: #CFD8DC;
+  background-color: #c5cae9;
   cursor: not-allowed;
 }
 
-.btn-download:not(:disabled):hover {
-  background-color: #1B5E20;
-}
 
-/* Responsive */
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+
 @media (max-width: 768px) {
+
   .documents-card {
     padding: 15px;
   }
 
   .documents-table th,
   .documents-table td {
-    padding: 10px;
     font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn-view,
+  .btn-download {
+    margin-top: 5px;
+    display: block;
   }
 }

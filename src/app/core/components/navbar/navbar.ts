@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+
 @Component({
   selector: 'app-navbar',
   standalone: false,
@@ -7,17 +9,23 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.css',
 })
 export class Navbar {
+
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.checkLoginStatus();
   }
 
   checkLoginStatus(): void {
-    const user = localStorage.getItem('user');
-    this.isLoggedIn = !!user;
+    if (isPlatformBrowser(this.platformId)) {
+      const user = localStorage.getItem('user');
+      this.isLoggedIn = !!user;
+    }
   }
 
   goToLogin(): void {
@@ -25,10 +33,10 @@ export class Navbar {
   }
 
   logout(): void {
-    localStorage.removeItem('user');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('user');
+    }
     this.isLoggedIn = false;
     this.router.navigate(['/']);
   }
-
-
 }

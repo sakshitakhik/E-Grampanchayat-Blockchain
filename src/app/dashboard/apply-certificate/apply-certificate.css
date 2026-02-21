@@ -1,60 +1,119 @@
+/* ===================================== */
+/* CONTAINER */
+/* ===================================== */
+
 .apply-container {
   max-width: 650px;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
+
+/* ===================================== */
+/* PAGE TITLE */
+/* ===================================== */
 
 .page-title {
-  color: #2E7D32;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 25px;
 }
+
+
+/* ===================================== */
+/* FORM LAYOUT */
+/* ===================================== */
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* ===================================== */
+/* FORM GROUP */
+/* ===================================== */
 
 .form-group {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-label {
-  font-weight: 600;
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 6px;
-  display: block;
+  color: #333;
 }
+
+
+/* ===================================== */
+/* INPUT FIELDS */
+/* ===================================== */
 
 .form-control {
-  border-radius: 8px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 9px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #cfd8dc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
 }
 
 .form-control:focus {
-  border-color: #2E7D32;
-  box-shadow: none;
+  border-color: #1a237e;
+  box-shadow: 0 0 0 0.15rem rgba(26, 35, 126, 0.15);
+  outline: none;
 }
+
+/* File Input */
+input[type="file"] {
+  padding: 6px;
+}
+
+
+/* ===================================== */
+/* SUBMIT BUTTON */
+/* ===================================== */
+
 .submit-btn {
-  background-color: #2E7D32;      /* Forest Green */
-  color: #F5DEB3;                 /* Cream */
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
   font-weight: 600;
-  border-radius: 25px;
-  padding: 10px 24px;
-  border: 2px solid #2E7D32;
-  transition: all 0.3s ease;
-}
-
-/* 🌟 Hover State */
-.submit-btn:hover {
-  background-color: #F5DEB3;      /* Earth Brown */
-  border-color: #F5DEB3;
-  color: #2E7D32;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-}
-
-/* 🔒 Disabled State */
-.submit-btn:disabled {
-  background-color: #9E9E9E;
-  border-color: #9E9E9E;
+  border-radius: 6px;
+  border: none;
+  background-color: #1a237e;
   color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0d1b5e;
+}
+
+.submit-btn:disabled {
+  background-color: #9fa8da;
   cursor: not-allowed;
+}
+
+
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+
+@media (max-width: 768px) {
+  .apply-container {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
 }

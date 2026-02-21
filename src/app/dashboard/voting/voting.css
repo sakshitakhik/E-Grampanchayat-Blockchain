@@ -1,50 +1,124 @@
+/* ===================================== */
+/* WRAPPER */
+/* ===================================== */
+
 .voting-wrapper {
-  max-width: 700px;
-  margin: auto;
+  padding: 20px 5px;
 }
+
+
+/* ===================================== */
+/* TITLE */
+/* ===================================== */
 
 .title {
-  color: #2E7D32;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 25px;
 }
 
+
+/* ===================================== */
+/* VOTE CARD */
+/* ===================================== */
+
 .vote-card {
-  background: #fff;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  border-left: 5px solid #2E7D32;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
+
+.vote-card:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.vote-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+  margin-bottom: 15px;
+}
+
+
+/* ===================================== */
+/* BUTTON GROUP */
+/* ===================================== */
 
 .btn-group {
   display: flex;
   gap: 15px;
-  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
+
+/* ===================================== */
+/* YES BUTTON */
+/* ===================================== */
+
 .yes-btn {
-  background-color: #2E7D32;
-  color: #fff;
-  border: none;
   padding: 8px 18px;
-  border-radius: 20px;
+  font-size: 14px;
   font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background-color: #e8f5e9;
+  color: #1b5e20;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .yes-btn:hover {
-  background-color: #255f28;
+  background-color: #c8e6c9;
 }
 
+
+/* ===================================== */
+/* NO BUTTON */
+/* ===================================== */
+
 .no-btn {
-  background-color: #8D6E63;
-  color: #fff;
-  border: none;
   padding: 8px 18px;
-  border-radius: 20px;
+  font-size: 14px;
   font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background-color: #fdecea;
+  color: #b71c1c;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .no-btn:hover {
-  background-color: #6d4c41;
+  background-color: #f8d7da;
+}
+
+
+/* ===================================== */
+/* RESPONSIVE */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+  .title {
+    font-size: 18px;
+  }
+
+  .vote-card {
+    padding: 15px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .yes-btn,
+  .no-btn {
+    width: 100%;
+  }
 }

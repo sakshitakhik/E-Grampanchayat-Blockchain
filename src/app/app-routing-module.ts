@@ -16,24 +16,26 @@ import { MyDocument } from './dashboard/my-document/my-document';
 import { Voting } from './dashboard/voting/voting';
 
 const routes: Routes = [
-  {path:'',component:Home},
-  
-  {path:'login',component:Login},
-  {path:'about-us',component:AboutUs},
-  {path:'contact-us',component:ContactUs},
-  {path:'dashboard',component:Dashboard,
-    children:[
-      {path:'', redirectTo: 'apply-certificate', pathMatch: 'full' },
-      { path: 'apply-certificate', component: ApplyCertificate},
+  { path: '', component: Home },
+
+  { path: 'login', component: Login },
+  { path: 'about-us', component: AboutUs },
+  { path: 'contact-us', component: ContactUs },
+  {
+    path: 'dashboard', component: Dashboard,
+    children: [
+      { path: '', redirectTo: 'apply-certificate', pathMatch: 'full' },
+      { path: 'apply-certificate', component: ApplyCertificate },
       { path: 'complaints', component: Complaints },
       { path: 'announcements', component: Announcements },
       { path: 'my-documents', component: MyDocument },
-      {path:'voting',component:Voting}
-    ]}
-    ];
+      { path: 'voting', component: Voting }
+    ]
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),FormsModule],
+  imports: [RouterModule.forRoot(routes), FormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
