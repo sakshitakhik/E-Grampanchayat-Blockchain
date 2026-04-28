@@ -1,0 +1,62 @@
+<div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="bi bi-person-workspace logo-icon"></i>
+            <span>Gramsevak Portal</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li [class.active]="activeSection === 'applications'" (click)="setSection('applications')">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Applications</span>
+            </li>
+            <li [class.active]="activeSection === 'complaints'" (click)="setSection('complaints')">
+                <i class="bi bi-exclamation-octagon"></i>
+                <span>Complaints</span>
+            </li>
+            <li [class.active]="activeSection === 'announcements'" (click)="setSection('announcements')">
+                <i class="bi bi-megaphone"></i>
+                <span>Announcements</span>
+            </li>
+            <li [class.active]="activeSection === 'votes'" (click)="setSection('votes')">
+                <i class="bi bi-pie-chart"></i>
+                <span>Manage Votes</span>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <button class="btn btn-outline-light w-100 btn-sm">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="welcome-text">
+                <h1>Welcome, Gramsevak</h1>
+                <p>Manage your village operations efficiently.</p>
+            </div>
+            <div class="header-actions">
+                <span class="date-chip"><i class="bi bi-calendar3"></i> April 7, 2026</span>
+            </div>
+        </header>
+
+        <section class="content-area">
+            <div *ngIf="activeSection === 'applications'">
+                <app-applications-review></app-applications-review>
+            </div>
+            <div *ngIf="activeSection === 'complaints'">
+                <app-complaints-review></app-complaints-review>
+            </div>
+            <div *ngIf="activeSection === 'announcements'">
+                <app-announcements-manager></app-announcements-manager>
+            </div>
+            <div *ngIf="activeSection === 'votes'">
+                <app-votes-manager></app-votes-manager>
+            </div>
+        </section>
+    </main>
+</div>

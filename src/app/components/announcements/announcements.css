@@ -1,0 +1,36 @@
+.announcement-card {
+    transition: all 0.3s ease;
+    border-top: 4px solid #1a237e;
+}
+
+.announcement-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+.date-chip {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ef4444;
+    text-transform: uppercase;
+}
+
+.priority-badge {
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.priority-badge.high { background: #fee2e2; color: #b91c1c; }
+.priority-badge.normal { background: #e0f2fe; color: #0369a1; }
+.priority-badge.urgent { background: #fef3c7; color: #b45309; }
+
+.btn-link {
+    color: #1a237e;
+}
+
+.btn-link:hover {
+    color: #ef4444;
+}

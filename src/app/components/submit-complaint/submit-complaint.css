@@ -1,0 +1,34 @@
+.btn-warning {
+    background-color: #ffd740;
+    border: none;
+    font-weight: 700;
+    padding: 12px;
+}
+
+.btn-warning:hover {
+    background-color: #ffc107;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 64, 0.2);
+    border-color: #ffd740;
+}
+
+.fade-in {
+    animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}

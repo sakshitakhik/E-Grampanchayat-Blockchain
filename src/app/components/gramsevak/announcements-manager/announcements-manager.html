@@ -1,0 +1,41 @@
+<div class="announcement-manager-container">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+            <h3 class="card-title mb-4"><i class="bi bi-megaphone-fill text-primary"></i> Create New Announcement</h3>
+            
+            <form [formGroup]="announcementForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Announcement Title</label>
+                    <input type="text" id="title" class="form-control form-control-lg" formControlName="title" placeholder="Enter headline...">
+                </div>
+
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea id="content" class="form-control" rows="5" formControlName="content" placeholder="Type details here..."></textarea>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label for="priority" class="form-label">Priority Level</label>
+                        <select id="priority" class="form-select" formControlName="priority">
+                            <option value="Normal">Normal</option>
+                            <option value="High">High</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg" [disabled]="announcementForm.invalid || isSubmitting">
+                        <span *ngIf="!isSubmitting"><i class="bi bi-send-fill"></i> Post Announcement</span>
+                        <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm"></span>
+                    </button>
+                </div>
+
+                <div *ngIf="successMessage" class="alert alert-success mt-3 fade-in">
+                    {{successMessage}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

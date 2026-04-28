@@ -1,0 +1,52 @@
+<div class="review-container">
+    <div class="card premium-card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2 class="m-0"><i class="bi bi-file-earmark-check"></i> Review Applications</h2>
+            <span class="badge bg-primary">{{applications.length}} Pending</span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Applicant</th>
+                            <th>Certificate Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let app of applications" class="fade-in">
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar me-2">{{app.applicantName.charAt(0)}}</div>
+                                    <strong>{{app.applicantName}}</strong>
+                                </div>
+                            </td>
+                            <td>{{app.type}}</td>
+                            <td>{{app.date}}</td>
+                            <td>
+                                <span class="badge rounded-pill" 
+                                    [ngClass]="{'bg-warning': app.status === 'Pending', 'bg-success': app.status === 'Approved', 'bg-danger': app.status === 'Rejected'}">
+                                    {{app.status}}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="action-buttons" *ngIf="app.status === 'Pending'">
+                                    <button class="btn btn-sm btn-success me-2" (click)="approve(app.id)">
+                                        <i class="bi bi-check-lg"></i> Approve
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" (click)="reject(app.id)">
+                                        <i class="bi bi-x-lg"></i> Reject
+                                    </button>
+                                </div>
+                                <span *ngIf="app.status !== 'Pending'" class="text-muted small italic">Processed</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

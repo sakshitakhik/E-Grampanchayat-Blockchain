@@ -1,0 +1,48 @@
+<div class="container py-5 mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0 rounded-4">
+                <div class="card-body p-5">
+                    <h2 class="mb-4 text-center">Citizen Complaint</h2>
+                    <p class="text-muted text-center mb-5">Report issues like water leakage, street light problems, or road damage.</p>
+
+                    <form [formGroup]="complaintForm" (ngSubmit)="onSubmit()" *ngIf="!success">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Complaint Subject</label>
+                            <input type="text" class="form-control" formControlName="subject" placeholder="e.g., Street light not working">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Detailed Description</label>
+                            <textarea class="form-control" rows="5" formControlName="description" placeholder="Describe the issue in detail..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Location (Area/Landmark)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="bi bi-geo-alt"></i></span>
+                                <input type="text" class="form-control" formControlName="location" placeholder="Lane 4, Near Maruti Temple">
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-warning btn-lg rounded-pill" [disabled]="complaintForm.invalid || isSubmitting">
+                                <span *ngIf="!isSubmitting">Submit Complaint</span>
+                                <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm"></span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div *ngIf="success" class="text-center py-4 fade-in">
+                        <i class="bi bi-send-check text-success display-1 mb-4"></i>
+                        <h3 class="fw-bold">Sent Successfully!</h3>
+                        <p class="text-muted">The Gramsevak and the administrative team have been notified.</p>
+                        <button class="btn btn-outline-warning btn-lg mt-4 px-5 rounded-pill" (click)="success = false">
+                            Report Another Issue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

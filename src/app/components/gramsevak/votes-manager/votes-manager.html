@@ -1,0 +1,71 @@
+<div class="votes-manager-container">
+    <ul class="nav nav-pills mb-4 justify-content-center">
+        <li class="nav-item">
+            <button class="nav-link" [class.active]="activeTab === 'create'" (click)="activeTab = 'create'">
+                <i class="bi bi-plus-circle"></i> Create Vote
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" [class.active]="activeTab === 'results'" (click)="activeTab = 'results'">
+                <i class="bi bi-bar-chart-fill"></i> View Results
+            </button>
+        </li>
+    </ul>
+
+    <div *ngIf="activeTab === 'create'" class="fade-in">
+        <div class="card premium-card">
+            <div class="card-body p-4">
+                <form [formGroup]="voteForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-4">
+                        <label class="form-label">Poll Question</label>
+                        <input type="text" class="form-control form-control-lg" formControlName="question" placeholder="e.g., Should we install solar lights?">
+                    </div>
+
+                    <div class="options-section mb-4">
+                        <label class="form-label">Options</label>
+                        <div formArrayName="options">
+                            <div *ngFor="let option of options.controls; let i=index" class="input-group mb-2">
+                                <input type="text" [formControlName]="i" class="form-control" [placeholder]="'Option ' + (i+1)">
+                                <button *ngIf="options.length > 2" class="btn btn-outline-danger" type="button" (click)="removeOption(i)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary btn-sm mt-2" (click)="addOption()">
+                            <i class="bi bi-plus"></i> Add Option
+                        </button>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary" [disabled]="voteForm.invalid">Create Poll</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="activeTab === 'results'" class="fade-in">
+        <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let result of voteResults">
+                <div class="card result-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">{{result.question}}</h5>
+                        <div *ngFor="let option of result.optionsWithVotes" class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>{{option.text}}</span>
+                                <span class="fw-bold">{{calculatePercentage(option.votes, result.optionsWithVotes)}}%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar" role="progressbar" 
+                                    [style.width.%]="calculatePercentage(option.votes, result.optionsWithVotes)"
+                                    [class.bg-success]="calculatePercentage(option.votes, result.optionsWithVotes) > 50">
+                                </div>
+                            </div>
+                            <small class="text-muted">{{option.votes}} votes</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

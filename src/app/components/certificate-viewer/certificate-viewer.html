@@ -1,0 +1,67 @@
+<div class="certificate-overlay">
+    <div class="certificate-container">
+        <button class="btn-close-cert" (click)="close.emit()"><i class="bi bi-x-lg"></i></button>
+        
+        <div class="watermark">{{data.type}}</div>
+
+        <div class="certificate-inner-border">
+            <div class="cert-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg" alt="GOI" style="height: 80px; margin-bottom: 10px;">
+                <h1>Government of Maharashtra</h1>
+                <h3>Grampanchayat Administration</h3>
+                <div class="demo-text mt-2"><i class="bi bi-info-circle"></i> OFFICIAL DEMO COPY</div>
+            </div>
+
+            <div class="cert-body">
+                <div class="cert-title">{{data.type}} Certificate</div>
+                
+                <p>This is to officially certify that</p>
+                <div class="recipient-name">{{data.User?.name || 'Applicant Name'}}</div>
+                
+                <div [ngSwitch]="data.type">
+                    <p *ngSwitchCase="'Income'">
+                        Has an annual declared income of <br>
+                        <strong>₹ {{data.remarks?.split(':')[1] || '5,00,000'}}/-</strong> <br>
+                        for the financial year <strong>2025-2026</strong>.
+                    </p>
+                    <p *ngSwitchCase="'Caste'">
+                        Belongs to the <strong>{{data.remarks || 'General'}}</strong> community, <br>
+                        registered under the village community records.
+                    </p>
+                    <p *ngSwitchCase="'Residential'">
+                        Is a permanent resident of this Grampanchayat jurisdiction <br>
+                        residing at the registered address provided in the application.
+                    </p>
+                    <p *ngSwitchDefault>
+                        Has successfully verified their records for <strong>{{data.type}}</strong> <br>
+                        purposes as per village administration guidelines.
+                    </p>
+                </div>
+
+                <p class="mt-4">Issued on: <strong>{{today}}</strong></p>
+            </div>
+
+            <div class="cert-footer">
+                <div class="signature">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Signature_of_Mahatma_Gandhi.svg" alt="Sign" style="height: 40px; opacity: 0.7;">
+                    <div class="signature-line"></div>
+                    <small>Gramsevak Signatory</small>
+                </div>
+                <div class="signature">
+                    <i class="bi bi-shield-check text-success fs-1"></i>
+                    <div class="signature-line"></div>
+                    <small>Digitally Verified</small>
+                </div>
+            </div>
+
+            <div class="blockchain-verification">
+                <div class="fw-bold mb-1"><i class="bi bi-lock-fill"></i> Blockchain Evidence Hash:</div>
+                <code>{{data.verificationHash}}</code>
+            </div>
+        </div>
+
+        <button class="btn btn-primary rounded-pill px-5 py-3 print-btn shadow" (click)="printCertificate()">
+            <i class="bi bi-printer-fill me-2"></i> Print Certificate
+        </button>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container py-5 mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-gradient-primary p-4 text-center">
+                    <h2 class="text-white mb-0"><i class="bi bi-file-earmark-plus"></i> Apply for Certificate</h2>
+                    <p class="text-white-50 small">Fill in the details carefully to submit your request.</p>
+                </div>
+                <div class="card-body p-4 p-lg-5">
+                    <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" *ngIf="!applicationId">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Certificate Type</label>
+                                <select class="form-select" formControlName="certificateType">
+                                    <option value="">Select Type</option>
+                                    <option value="Income Certificate">Income Certificate</option>
+                                    <option value="Caste Certificate">Caste Certificate</option>
+                                    <option value="Birth Certificate">Birth Certificate</option>
+                                    <option value="Residential Certificate">Residential Certificate</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Aadhar Number (12 Digits)</label>
+                                <input type="text" class="form-control" formControlName="aadharNumber" placeholder="9876 5432 1098">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Full Name (As per Aadhar)</label>
+                            <input type="text" class="form-control" formControlName="fullName" placeholder="John Doe">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Reason for Application</label>
+                            <textarea class="form-control" rows="4" formControlName="reason" placeholder="Explain why you need this certificate..."></textarea>
+                        </div>
+
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill" [disabled]="applyForm.invalid || isSubmitting">
+                                <span *ngIf="!isSubmitting">Submit Application</span>
+                                <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm"></span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div *ngIf="applicationId" class="text-center py-4 fade-in">
+                        <div class="success-icon mb-4">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                        </div>
+                        <h3 class="fw-bold">Application Submitted!</h3>
+                        <p class="text-muted">Your application has been received successfully.</p>
+                        <div class="alert alert-info py-3 mt-4 border-0">
+                            <strong>Your Application ID:</strong> <span class="fs-4 d-block mt-2">{{applicationId}}</span>
+                        </div>
+                        <button class="btn btn-outline-primary btn-lg mt-4 px-5 rounded-pill" (click)="applicationId = ''">
+                            Apply for Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

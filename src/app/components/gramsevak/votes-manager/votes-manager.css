@@ -1,0 +1,42 @@
+.votes-manager-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.nav-pills .nav-link {
+    color: #3949ab;
+    border: 1px solid #3949ab;
+    margin: 0 5px;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+.nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    border-color: transparent;
+}
+
+.premium-card, .result-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.result-card {
+    border-bottom: 4px solid #3949ab;
+}
+
+.progress-bar {
+    background-color: #3949ab;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

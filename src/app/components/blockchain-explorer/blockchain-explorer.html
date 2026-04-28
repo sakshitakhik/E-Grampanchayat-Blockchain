@@ -1,0 +1,66 @@
+<div class="container py-5 mt-4">
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-7">
+            <h1 class="display-5 fw-bold text-dark"><i class="bi bi-shield-check text-success"></i> Blockchain Explorer</h1>
+            <p class="lead text-muted">A transparent, immutable ledger of all village transactions including Certificates, Complaints, and Polls.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end" *ngIf="!isLoading">
+            <div class="status-card p-3 rounded-4 shadow-sm d-inline-block text-start border" 
+                [ngClass]="status?.isValid ? 'bg-success-subtle border-success' : 'bg-danger-subtle border-danger'">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="status-icon bg-white p-2 rounded-circle shadow-sm">
+                        <i class="bi fs-3" [ngClass]="status?.isValid ? 'bi-check-lg text-success' : 'bi-x-lg text-danger'"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0 fw-bold" [ngClass]="status?.isValid ? 'text-success' : 'text-danger'">
+                            Ledger {{status?.status}}
+                        </h5>
+                        <small class="text-muted">Last Verified: Just now</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-5">
+        <div class="spinner-border text-primary display-4 mb-3" style="width: 3rem; height: 3rem;"></div>
+        <h4 class="text-muted">Synchronizing Blockchain...</h4>
+    </div>
+
+    <div *ngIf="!isLoading" class="blockchain-timeline position-relative ps-4">
+        <div *ngFor="let block of blocks; let last = last" class="block-card mb-5 position-relative">
+            <!-- Connection Line -->
+            <div *ngIf="!last" class="chain-connector"></div>
+            
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-header border-0 p-3 text-white d-flex justify-content-between align-items-center"
+                    [ngClass]="block.index === 0 ? 'bg-dark' : 'bg-primary'">
+                    <span class="fw-bold fs-5">
+                        <i class="bi me-2" [ngClass]="block.index === 0 ? 'bi-star-fill' : 'bi-box'"></i>
+                        {{block.index === 0 ? 'Genesis Block' : 'Block #' + block.index}}
+                    </span>
+                    <span class="badge bg-white text-dark rounded-pill">{{block.timestamp | date:'medium'}}</span>
+                </div>
+                <div class="card-body p-4 bg-white">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label class="small text-muted fw-bold text-uppercase d-block mb-1">Current Hash</label>
+                            <code class="text-break text-primary fw-bold">{{block.hash}}</code>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small text-muted fw-bold text-uppercase d-block mb-1">Previous Hash</label>
+                            <code class="text-break text-muted">{{block.previousHash}}</code>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-4 opacity-10">
+                    
+                    <div class="data-payload bg-light p-3 rounded-3">
+                        <label class="small text-muted fw-bold text-uppercase d-block mb-2">Block Payload (Encrypted Ledger Entry)</label>
+                        <pre class="mb-0 overflow-auto" style="max-height: 200px;">{{formatData(block.data)}}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

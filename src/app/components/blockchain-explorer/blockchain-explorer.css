@@ -1,0 +1,43 @@
+.blockchain-timeline {
+    border-left: 2px dashed #dee2e6;
+}
+
+.chain-connector {
+    position: absolute;
+    left: -26px;
+    top: 50px;
+    bottom: -50px;
+    width: 2px;
+    background: linear-gradient(180deg, #0d6efd 0%, #dee2e6 100%);
+    z-index: -1;
+}
+
+.block-card::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: #0d6efd;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+.data-payload pre {
+    font-size: 0.85rem;
+    color: #444;
+}
+
+code {
+    font-size: 0.8rem;
+}
+
+.status-card {
+    transition: transform 0.3s ease;
+}
+
+.status-card:hover {
+    transform: translateY(-5px);
+}

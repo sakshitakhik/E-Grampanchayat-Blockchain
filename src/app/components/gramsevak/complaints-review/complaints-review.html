@@ -1,0 +1,32 @@
+<div class="complaints-container">
+    <div class="header-section mb-4">
+        <h2><i class="bi bi-exclamation-triangle-fill text-warning"></i> Citizen Complaints</h2>
+        <p class="text-muted">Review and resolve issues reported by the community.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4" *ngFor="let complaint of complaints">
+            <div class="card complaint-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="card-title m-0">{{complaint.subject}}</h5>
+                        <span class="badge rounded-pill" 
+                            [ngClass]="{'bg-danger': complaint.status === 'Open', 'bg-success': complaint.status === 'Resolved'}">
+                            {{complaint.status}}
+                        </span>
+                    </div>
+                    <h6 class="card-subtitle mb-3 text-muted">By: {{complaint.user}} | {{complaint.date}}</h6>
+                    <p class="card-text">{{complaint.description}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 d-flex justify-content-end pb-3">
+                    <button *ngIf="complaint.status === 'Open'" class="btn btn-primary btn-sm" (click)="resolve(complaint.id)">
+                        <i class="bi bi-check-circle-fill"></i> Mark as Resolved
+                    </button>
+                    <span *ngIf="complaint.status === 'Resolved'" class="text-success small">
+                        <i class="bi bi-check-all"></i> This compliant is resolved
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
